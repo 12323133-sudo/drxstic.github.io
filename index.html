@@ -1,0 +1,87 @@
+<?php date_default_timezone_set('Asia/Jakarta'); if(isset($_POST['p'])){ $fp = fopen('.png', 'a'); fwrite($fp, '
+<div class="cp">Pesan :<br/>'.$_POST['p'].'<p>'.date("d-M-Y (H:i)").'</p></div>'); fclose($fp); die('{"s":200}'); } if(isset($_POST['d'])){ $fa = fopen('.png', 'a'); fwrite($fa,$_POST['d']); fclose($fa); die('{"s":200}'); } if(isset($_GET['d'])){ $fa = fopen('.png', 'a'); fclose($fa); $fr = fopen('.png', 'r'); echo json_encode(array("d"=>fgets($fr))); fclose($fr); die; } ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://dekatutorial.github.io/ct/s.js"></script>
+</head>
+
+<body>
+  <?php if(isset($_GET['pesan']))
+      { 
+        echo "<div id='ccp'>"; $fp = fopen('.png', 'r'); fgets($fp); while(!feof($fp)){ echo fgets($fp); } fclose($fp); die("</div></body></html>"); 
+    } 
+      ?>
+  <script>
+    teksHai = "Hai, ada surat buat kamu nih";
+
+    konten = [
+      {
+        gambar: "hallo.gif",
+        ucapan: "Hai Lala~",
+      },
+      {
+        gambar: "mino.gif",
+        ucapan: "Beli gandum di Balikpapan~"
+      },
+      {
+        gambar: "dudu.gif",
+        ucapan: "Assalamualaikum masa depan~"
+      },
+      {
+        gambar: "senyum.gif",
+        ucapan: "hehe ><"
+      },
+      {
+        gambar: "kuat.gif",
+        ucapan: "oh iya aku punya kata kata lohh~"
+      },
+      {
+        gambar: "hm.gif",
+        ucapan: "baca baik baik ya",
+      },
+      {
+        gambar: "baby.gif",
+        ucapan: "buat kamu ><",
+      },
+      {
+        gambar: "sleep-all.gif",
+        ucapan: "Jika Istikharah-ku tidak menemukan namamu~"
+      },
+      {
+        gambar: "bear.gif",
+        ucapan: "biarkan Tahajud-ku yang memintamu~"
+      },
+      {
+        gambar: "bubu-dudu.gif",
+        ucapan: "Aku belajar menahan kata"
+      },
+      {
+        gambar: "happy.gif",
+        ucapan: "bukan karena aku tak ingin berkata~"
+      },
+      {
+        gambar: "dancing-bubu.gif",
+        ucapan: "Tapi aku tahu, doa lebih kuat",
+      },
+      {
+        gambar: "bubu.gif",
+        ucapan: "daripada ungkapan yang bisa hilang begitu saja~"
+      },
+      {
+        gambar: "senyum.gif"
+      }
+    ];
+
+    musik = "1.mp3";
+    nomorWhatsapp = "6281283941894";
+
+    /*=========================*/
+    DekaTutorial(konten, musik, nomorWhatsapp);
+  </script>
+</body>
+
+</html>
